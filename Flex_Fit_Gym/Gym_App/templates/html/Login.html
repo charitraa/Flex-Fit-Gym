@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Login Page</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #2A2B2F;
+        }
+
+        .container {
+            position: relative;
+            width: 90vw;
+            height: 80vh;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+            background: linear-gradient(-45deg, #2A2B2F,#2A2B2F);
+        }
+
+        .signin {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 50%;
+            min-width: 238px;
+            padding: 0 10px;
+        }
+
+        .title {
+            font-size: 35px;
+            color: #FF5F08;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            height: 50px;
+            background:#2A2B2F;
+            margin: 10px 0;
+            border: 2px solid #def4df;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-field i{
+            flex: 1;
+            text-align: center;
+            color:  #def4df;
+            font-size: 18px;
+        }
+
+        .input-field input{
+            flex: 5;
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .btn {
+            width: 150px;
+            height: 50px;
+            border: none;
+            border-radius: 50px;
+            background: #FF5F08;
+            color:#d3d3d3; 
+            font-weight: 600;
+            margin: 10px 0;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .social-text {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icons {
+            height: 40px;   
+            width: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 50px;
+            margin: 0 5px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .social-icons:hover {
+            color: #89a3e5;
+            border-color: #756ed8;
+        }
+
+        .img{
+            width:0;
+            margin-right:30rem;
+        }
+
+        .img img{
+            top: 30px;
+            left: 20px;
+            width: 400px;
+            height: 300px;
+            position: relative;
+            background: #FCFBFF;
+        }
+
+        .text {
+            display:flex;
+            align-items:center;
+            font-size:18px;
+            margin-top:10px;
+            color: #fff;
+        }
+
+        .sign-up{
+            background: #2A2B2F;
+            color: #FF5F08;
+            padding: 5px;
+            border: none;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .sign-up:hover {
+            background:  #2b44d6;   
+        }
+
+        @media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .signin {
+        flex-direction: column;
+    }
+
+    form {
+        width: 80%;
+    }
+
+    .img {
+        display: none;
+    }
+}
+
+    </style>
+
+
+</head>
+<body>
+
+    {% load static %}
+
+    <div class="container">
+        <div class="signin">
+            <form class="signin-form" action="{% url 'signin'%}" method="POST">
+                {% csrf_token %}
+                <h2 class="title">Welcome To Flex Fit Gym</h2>
+                <div class="input-field">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Username" name="username"required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Sign In</button>
+                <p class="social-text">Or Sign in with using</p>
+                <div class="social-media">
+                    <a href="" class="social-icons">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="" class="social-icons">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
+                    <a href="" class="social-icons">
+                        <i class="fa-brands fa-pinterest"></i>
+                    </a>
+                    <a href="" class="social-icons">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </div>
+                <div class="text">
+                    <h6>Don't have an account? </h6>
+                    <a href="{% url 'signup' %}" style="color: white;margin-left: 5px; font-size: 15px;">sign up</a>
+                </div>
+            </form>
+
+            <div class="img">
+                <img src="{% static 'imggym.png'%}" alt="Here is image">
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

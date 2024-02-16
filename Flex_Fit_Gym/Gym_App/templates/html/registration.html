@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        background-color: #2a2b2f;
+        padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+      }
+      label {
+        color: white;
+        font-size: 25px;
+      }
+      input {
+        width: 250px;
+        background-color: #2a2b2f;
+        border: gray solid 1px;
+        border-radius: 5px;
+        height: 25px;
+        color: white;
+      }
+      button {
+        background-color: #ff5f08;
+        color: white;
+      }
+      .reg {
+        color: #ff5f08;
+        font-size: 50px;
+        width: 450px;
+        height: 10px;
+      }
+      select {
+        width: 250px;
+      }
+      p {
+        color: white;
+        font-size: 35px;
+        height: 10px;
+      }
+      button {
+        width: 250px;
+        font-size: 15px;
+        height: 30px;
+        border-radius: 10px;
+      }
+      .kaka {
+        color: white;
+      }
+      a {
+        color: #ff5f08;
+      }
+      #Membership {
+        height: 25px;
+        background-color: #2a2b2f;
+        color: white;
+        border-radius: 5px;
+      }
+      .layout {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      .imageee {
+        width: 600px;
+        height: 600px;
+      }
+      .imageee img {
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+      }
+      @media (max-width: 1654px) {
+        .layout {
+          justify-content: center;
+        }
+        .imageee {
+          width: 400px;
+          height: 400px;
+        }
+        .imageee img {
+          width: 400px;
+          height: 400px;
+          object-fit: cover;
+        }
+      }
+      @media (max-width: 1100px) {
+        .layout {
+          flex-direction: column-reverse;
+          justify-content: center;
+          align-items: center;
+        }
+        form {
+          align-items: center;
+        }
+        .reg {
+          text-align: center;
+        }
+      }
+      @media (max-width: 700px) {
+        form {
+          align-items: center;
+        }
+        .reg {
+          text-align: center;
+        }
+      }
+      @media (max-width: 450px) {
+        .reg {
+          font-size: 35px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% load static %}
+
+    <div class="layout">
+      <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <h2 class="reg">REGISTER NOW</h2>
+        <p>Let's get connected</p>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="username">Username</label>
+        <input type="username" id="username" name="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="confirm-password">Confirm Password</label>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          required
+        />
+
+        <label for="phone">Phone no</label>
+        <input type="number" id="phone" name="phone" required />
+
+        <label for="membership">Membership :</label>
+        <select id="Membership" name="membership">
+          <option value="Monthly">Monthly</option>
+          <option value="Yearly">Yearly</option>
+        </select>
+
+        <button class="signup">Sign Up</button>
+
+        <p class="kaka">Already have an account!!</p>
+        <a href="{% url 'signin' %}">Sign In</a>
+      </form>
+      <div class="imageee">
+        <img src="{% static 'kaa.png' %}" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

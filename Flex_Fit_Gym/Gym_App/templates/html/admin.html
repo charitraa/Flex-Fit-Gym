@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <style>
+      body {
+        background-color: #2a2b2f;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .top{
+        display: flex;
+        background-color: #ff5f08;
+        height: 50px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .imagee {
+        width: 50px;
+        height: 50px;
+      }
+      .imagee img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+      }
+      input {
+        height: 20px;
+        margin-right: 60px;
+      }
+      label {
+        font-size: 25px;
+      }
+      .card{
+        display: flex;
+        background:transparent;
+        width:130px;
+        margin-top: 10px;
+        margin-left: 10px;
+        border: solid 2px gray;
+        border-radius: 20px;
+
+        
+      }
+      .card ul li a{
+       text-decoration: none;
+       color: gray;
+       
+      }
+      .card ul li {
+        list-style-type: none;
+        
+        
+       
+      }
+      
+    </style>
+  </head>
+  <body>
+    {% load static %}
+    <header>
+      <div class="top">
+        <label for="ADMIN">CHARITRA</label>
+        <input type="search" />
+        <div class="imagee">
+          <img src="{% static 'logo.png' %}" alt="" />
+        </div>
+      </div>
+    </header>
+    <div class="card">
+            <ul>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Customer</a></li>
+              <li><a href="#">Schedules</a></li>
+              <li><a href="#">Timesheet</a></li>
+              <li><a href="#">Calendar</a></li>
+              <li><a href="#">Reports</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+    </div>
+  </body>
+</html>

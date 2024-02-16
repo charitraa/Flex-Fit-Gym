@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <style>
+           @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+           body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            }
+
+           .linkpage img {
+              height: 82px;
+              width: 80px;
+           }
+
+           .nav {
+             background-color: #434549;
+             display: flex;
+             min-width: 100vh;
+             height: 82px;
+             justify-content: space-between;
+           }
+
+           .linkpage {
+             display: flex;
+             gap: 30px;
+             width: 1200px;
+           }
+
+           .navgroup ul{
+             display: flex;
+             list-style: none;
+             height: 50px;
+             gap: 150px;
+             justify-content: space-around;
+             align-items: center;
+           }
+
+           .navgroup ul li a{
+             color: white;
+             text-decoration: none;
+             font-size: 20px;
+             transition: all 0.5s ease;
+             cursor: pointer;
+           }
+           .navgroup ul li a:hover {
+             text-decoration: underline;
+             text-decoration-color: #ff5f08;
+           }
+           .sign {
+             display: flex;
+             align-items: center;
+             justify-content: space-evenly;
+             width: 200px;
+             color: white;
+             font-size: 20px;
+           }
+           .sign .signin-txt {
+             color: white;
+             text-decoration: none;
+           }
+
+
+           .header {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             padding: 20px 10%;
+             background-color: transparent;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             z-index: 100;
+           }
+           .red {
+             color: red;
+           }
+           .logo a {
+             position: relative;
+             font-size: 35px;
+             color: rgb(255, 255, 255);
+             text-decoration: none;
+             font-weight: 600;
+             color: rgb(255, 255, 255);
+           }
+           .logo {
+             cursor: default;
+             opacity: 0;
+             animation: slideRight 1s ease forwards;
+           }
+           .navbar a {
+             display: inline-block;
+             font-size: 25px;
+             color: rgb(255, 255, 255);
+             font-size: 500;
+             margin-left: 35px;
+             transition: 0.3s;
+             opacity: 0;
+             animation: slideTop 0.5s ease forwards;
+           }
+           .navbar a i {
+             transition: 0.3s all linear;
+           }
+           .navbar a:hover i {
+             transform: scale(1.5);
+             color: rgb(255, 0, 0);
+           }
+
+           .text {
+             height: 150px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             font-weight: 700;
+             color: white;
+             font-size: 20px;
+           }
+           .container {
+             display: flex;
+             align-items: center;
+             justify-content: flex-start;
+             flex-direction: column;
+             width: 100%;
+           }
+           .data {
+             display: grid;
+             grid-template-columns: repeat(2, 1fr);
+             gap: 20px;
+           }
+           .subject {
+             grid-column-start: 1;
+             grid-column-end: 4;
+           }
+
+           .name input,
+           .email input {
+             width: 300px;
+             height: 45px;
+             padding: 10px;
+           }
+           .subject input {
+             width: 642px;
+             height: 45px;
+             padding: 10px;
+           }
+           .message {
+             grid-column-start: 1;
+             grid-column-end: 4;
+           }
+           .message input {
+             position: relative;
+             width: 642px;
+             height: 200px;
+             padding: 10px;
+           }
+           .message input::placeholder {
+             position: absolute;
+             top: 10px;
+           }
+           input[type="text"] {
+             background: transparent;
+             border: white 1px solid;
+             border-radius: 10px;
+             color: white;
+             font-size: 20px;
+             transition: 0.5s;
+             outline: none;
+           }
+           input[type="text"]:focus {
+             border-color: rgb(255, 0, 0);
+           }
+           .btn-box {
+             display: flex;
+             justify-content: flex-end;
+             width: 640px;
+           }
+           .btn-box a.btn {
+              display: flex;
+              align-items: center;
+              height: 40px;
+              padding: 10px;
+              background: red;
+              color: white;
+              font-size: 1rem;
+              letter-spacing: 1px;
+              font-weight: 600;
+              transition: 0.6s;
+              border-radius: 5px;
+              position: relative;
+              overflow: hidden;
+              z-index: 1000;
+              text-decoration: none;
+              box-shadow: 0 0 0.5rem red;
+              opacity: 0;
+              animation: slideBottom 1s ease forwards;
+           }
+           a.btn:hover {
+             color: rgb(0, 0, 0);
+           }
+           a.btn::before {
+             content: "";
+             position: absolute;
+             top: 0;
+             left: 0;
+             background-color: rgb(255, 255, 255);
+             width: 0;
+             height: 100%;
+             z-index: -1;
+             transition: 0.4s;
+           }
+
+           a.btn:hover::before {
+             width: 100%;
+           }
+           @keyframes slideRight {
+             0% {
+               transform: translateX(-100px);
+               opacity: 0;
+             }
+
+             100% {
+               transform: translateX(0px);
+               opacity: 1;
+             }
+           }
+           @keyframes slideTop {
+             0% {
+               transform: translateY(-100px);
+               opacity: 0;
+             }
+             100% {
+               transform: translateY(0px);
+               opacity: 1;
+             }
+           }
+           @keyframes slideTop {
+             0% {
+               transform: translateY(-100px);
+               opacity: 0;
+             }
+             100% {
+               transform: translateY(0px);
+               opacity: 1;
+             }
+           }
+           @keyframes slideBottom {
+             0% {
+               transform: translateY(100px);
+               opacity: 0;
+             }
+             100% {
+               transform: translateY(0px);
+               opacity: 1;
+             }
+           }
+           @keyframes slideLeft {
+             0% {
+               transform: translateX(100px);
+               opacity: 0;
+             }
+             100% {
+               transform: translateX(0px);
+               opacity: 1;
+             }
+           }
+           .center{
+            display: flex;
+            background-color: black;
+            min-height: 91.5vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+           }
+    </style>
+  </head>
+
+  <body>
+    {%load static %}
+    <section class="Navigation">
+      <div class="nav">
+        <div class="linkpage">
+          <img src="{% static 'logo.png'%}" alt="" />
+          <div class="navgroup">
+            <ul>
+              <li><a href="{% url 'dashboard' %}">Home</a></li>
+              <li><a href="{% url 'contact'%}">Contact us</a></li>
+              <li><a href="{% url 'about'%}">About us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sign">
+          <a class="signin-txt" href="{% url 'signin' %}"> Sign in </a>
+
+          <div class="prn-logo">
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="center">
+        <div class="text">
+          <h1>Let's<span class="red"> Connect . </span></h1>
+        </div>
+        <div class="container">
+          <div class="data">
+            <div class="contact-data name">
+              <input type="text" placeholder="Name" />
+            </div>
+            <div class="contact-data email">
+              <input type="text" placeholder="Email" />
+            </div>
+            <div class="contact-data subject">
+              <input type="text" placeholder="Subject" />
+            </div>
+            <div class="contact-data message">
+              <input type="text" placeholder="Message" />
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="ab" class="btn">Let's talk</a>
+        </div>
+      </div>
+
+    </section>
+
+    <script
+      src="https://kit.fontawesome.com/49b6b027f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

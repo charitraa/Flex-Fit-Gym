@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer-Dashboard</title>
+    <script
+      src="https://kit.fontawesome.com/49b6b027f2.js"
+      crossorigin="anonymous"
+    ></script>
+    {%load static%}
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .linkpage img {
+        height: 82px;
+        width: 80px;
+      }
+
+      .nav {
+        background-color: #434549;
+        display: flex;
+        min-width: 100vh;
+        height: 82px;
+        justify-content: space-between;
+      }
+
+      .linkpage {
+        display: flex;
+        gap: 30px;
+        width: 1200px;
+      }
+
+      .navgroup ul{
+        display: flex;
+        list-style: none;
+        height: 50px;
+        gap: 150px;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .navgroup ul li a{
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        transition: all 0.5s ease;
+        cursor: pointer;
+      }
+      .navgroup ul li a:hover {
+        text-decoration: underline;
+        text-decoration-color: #ff5f08;
+      } 
+      .sign {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 200px;
+        color: white;
+        font-size: 20px;
+      }
+      .sign .signin-txt {
+        color: white;
+        text-decoration: none;
+      }
+      .slogan {
+        display: flex;
+        justify-content: center;
+        background-color: #121318;
+        min-width: 100vh;
+      }
+      .main-slogan {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 1400px;
+      }
+      .slogan-txt {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height: 350px;
+        gap: 10px;
+      }
+      .h1 {
+        font-size: 45px;
+        font-weight: bold;
+        color: #ffffff;
+        font-family: monospace;
+      }
+      .slogan-img img {
+        height: 400px;
+        width: 400px;
+      }
+      .fast {
+        color: white;
+        font-size: 19px;
+      }
+      .more-btn {
+        margin-top: 30px;
+        height: 50px;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: white;
+        background-color: #444444;
+        border: 0;
+      }
+      .black-white {
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+      }
+      .service-logo {
+        background-color: white;
+        width: 1590px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 30px;
+      }
+      .new {
+        color: #898989;
+      }
+      .main-service {
+        display: flex;
+        min-width: 100vh;
+        height: 350px;
+      }
+      .black {
+        height: 112px;
+        background-color: #121318;
+      }
+      .white {
+        height: 240px;
+        background-color: #434549;
+      }
+      .shpping,
+      .payments,
+      .return,
+      .service {
+        height: 250px;
+        width: 300px;
+        border: 2px red solid;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        gap: 20px;
+      }
+      .service-p {
+        font-size: 25px;
+        width: 261px;
+      }
+      .shipping-txt,
+      .payment-txt,
+      .return-txt,
+      .service-txt {
+        font-size: 26px;
+        font-weight: bold;
+      }
+      .service-logo i {
+        font-size: 70px;
+      }
+
+      .main-type {
+        display: flex;
+        min-width: 100vh;
+        flex-wrap: wrap;
+        gap: 40px;
+        padding: 60px;
+        background-color: #444444;
+      }
+      .type {
+        width: 545px;
+        height: 300px;
+        background-color: #444444;
+      }
+      .main-category {
+        display: flex;
+        color: white;
+        height: 380px;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #444444;
+      }
+      .category-title {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 60px;
+        font-size: 30px;
+      }
+      .category-name {
+        font-weight: bold;
+      }
+      .category-type {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 0px 60px;
+      }
+      .protein,
+      .sports,
+      .bags,
+      .accessories {
+        background-color: white;
+        width: 405px;
+        height: 300px;
+      }
+      .protein,
+      .sports,
+      .bags,
+      .accessories {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .protein {
+        background-image: url("{% static 'protein.png' %}");
+      }
+      .sports {
+        background-image: url("{% static 'sports.png'%}");
+      }
+      .bags {
+        background-image: url("{% static 'bags.png'%}");
+      }
+      .accessories {
+        background-image: url("{% static 'accessories.png'%}");
+      }
+      .products-title {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 60px;
+        font-size: 30px;
+      }
+      .products-name {
+        font-weight: bold;
+      }
+      .products-t-shirt {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 0px 60px;
+      }
+      .gym-tshirt,
+      .half-t-shirt,
+      .Sleeve-t-shirt {
+        background-color: #434549;
+        border: 2px white solid;
+        width: 545px;
+        height: 639px;
+      }
+      .main-products {
+        display: flex;
+        color: white;
+        height: 725px;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #444444;
+      }
+      .gym-tshirt,
+      .half-t-shirt,
+      .Sleeve-t-shirt {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: 50px;
+        justify-content: center;
+        align-items: center;
+      }
+      .product-btn {
+        color: white;
+        padding: 20px;
+        font-size: 35px;
+        height: 30px;
+        text-align: center;
+        background-color: #ea377b;
+        border-radius: 5px;
+      }
+      .main-footer {
+        display: flex;
+        background-color: #000000;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="Navigation">
+      <div class="nav">
+        <div class="linkpage">
+          <img src="{% static 'logo.png'%}" alt="" />
+          <div class="navgroup">
+            <ul>
+              <li><a href="{% url 'dashboard' %}">Home</a></li>
+              <li><a href="{% url 'contact'%}">Contact us</a></li>
+              <li><a href="{% url 'about'%}">About us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sign">
+          <a class="signin-txt" href="{% url 'signin' %}"> Sign in </a>
+
+          <div class="prn-logo">
+            <i class="fa-regular fa-user"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slogan">
+      <div class="main-slogan">
+        <div class="slogan-txt">
+          <div class="h1">COME & CREATE YOUR</div>
+          <div class="h1">OWN <span class="new">NEW</span> BODY</div>
+          <div class="fast">FASTER, STRONGER FIGHT TO THE END</div>
+          <button class="more-btn">More Details</button>
+        </div>
+        <div class="slogan-img">
+          <img src="{% static 'gymgirl.png'%}" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="main-service">
+        <div class="black-white">
+          <div class="black"></div>
+          <div class="white"></div>
+        </div>
+        <div class="service-logo">
+          <div class="shpping">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div class="shipping-txt">FREE SHIPPING</div>
+            <div class="service-p">
+              Contrary to popular belief ipsum is simply random
+            </div>
+          </div>
+          <div class="payments">
+            <i class="fa-regular fa-credit-card"></i>
+            <div class="payment-txt">INSTANT PAYMENTS</div>
+            <div class="service-p">
+              Contrary to popular belief ipsum is simply random
+            </div>
+          </div>
+          <div class="return">
+            <i class="fa-solid fa-rotate"></i>
+            <div class="return-txt">EXCHANGE & RETURN</div>
+            <div class="service-p">
+              Contrary to popular belief ipsum is simply random
+            </div>
+          </div>
+          <div class="service">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <div class="service-txt">CUSTOMER SERVICE</div>
+            <div class="service-p">
+              Contrary to popular belief ipsum is simply random
+            </div>
+          </div>
+        </div>
+        <div class="black-white">
+          <div class="black"></div>
+          <div class="white"></div>
+        </div>
+      </div>
+    </section>
+    <section class="type-exercise">
+      <div class="main-type">
+        <div
+          class="type"
+          style="background-image: url('{% static 'yoga.png' %}')"
+        ></div>
+        <div
+          class="type"
+          style="background-image: url('{% static 'fitness.png'%}')"
+        ></div>
+        <div
+          class="type"
+          style="background-image: url('{% static 'cardio.png'%}')"
+        ></div>
+        <div
+          class="type"
+          style="background-image: url('{% static 'zumba.png'%}')"
+        ></div>
+        <div
+          class="type"
+          style="background-image: url('{% static 'workout.png'%}')"
+        ></div>
+        <div
+          class="type"
+          style="background-image: url('{% static 'body.png'%}')"
+        ></div>
+      </div>
+    </section>
+    <section class="category">
+      <div class="main-category">
+        <div class="category-title">
+          <div class="category-name">Category</div>
+          <div class="category-see">See all</div>
+        </div>
+        <div class="category-type">
+          <div class="protein"></div>
+          <div class="sports"></div>
+          <div class="bags"></div>
+          <div class="accessories"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="main-products">
+        <div class="products-title">
+          <div class="products-name">New Product</div>
+          <div class="products-see">See all</div>
+        </div>
+        <div class="products-t-shirt">
+          <div class="gym-tshirt">
+            <div class="product-img"></div>
+            <div class="product-name">GYM T-Shirt</div>
+            <div class="product-prize">250.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+          <div class="half-t-shirt">
+            <div class="product-img"></div>
+            <div class="product-name">Half Sleeve T-Shirt</div>
+            <div class="product-prize">300.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+          <div class="Sleeve-t-shirt">
+            <div class="product-img"></div>
+            <div class="product-name">Sleeve-less T-shirt</div>
+            <div class="product-prize">300.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+      </div>
+      <div class="main-products">
+        <div class="products-title">
+          <div class="products-name">TRENDING PRODUCT</div>
+          <div class="products-see">See all</div>
+        </div>
+        <div class="products-t-shirt">
+          <div class="gym-tshirt">
+            <div class="product-img"></div>
+            <div class="product-name">Black GYM Bag</div>
+            <div class="product-prize">2550.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+          <div class="half-t-shirt">
+            <div class="product-img"></div>
+            <div class="product-name">Best GYM Bag</div>
+            <div class="product-prize">300.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+          <div class="Sleeve-t-shirt">
+            <div class="product-img"></div>
+            <div class="product-name">Shoulder Bag</div>
+            <div class="product-prize">300.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+      </div>
+      <div class="main-products">
+        <div class="products-title">
+          <div class="products-name">POPULAR PRODUCT</div>
+          <div class="products-see">See all</div>
+        </div>
+        <div class="products-t-shirt">
+          <div class="gym-tshirt">
+            <div class="product-img"></div>
+            <div class="product-name">Whey Protein Mexico</div>
+            <div class="product-prize">255.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+          <div class="half-t-shirt">
+            <div class="product-img"></div>
+            <div class="product-name">Vegan Protein powder</div>
+            <div class="product-prize">300.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+          <div class="Sleeve-t-shirt">
+            <div class="product-img"></div>
+            <div class="product-name">Organic Protein Powder</div>
+            <div class="product-prize">300.00$</div>
+            <div class="product-btn">Add to Cart</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="main-footer">
+        <div class="footer-little">
+          <img
+            src="{% static 'logo.png'%}"
+            alt=""
+            height="200px"
+            width="200px"
+          />
+          <div class="footer-txt">
+            Welcome to Flex Fit, where fitness meets passion, and every drop of
+            sweat tells a story of dedication. Our gym isn't just a place to
+            work out; it's a community, a lifestyle, and a commitment to your
+            well-being.
+          </div>
+        </div>
+        <div class="company">
+          <div class="about">About Us</div>
+          <div class="contact">Contact Us</div>
+          <div class="terms">Terms & Condition</div>
+          <div class="privacy">Privacy Policy</div>
+        </div>
+        <div class="Support">
+          <div class="FAQ">FAQ</div>
+          <div class="help">Help Center</div>
+          <div class="works">How it works</div>
+        </div>
+        <div class="media">
+          <div class="media-head">Social Media Link</div>
+          <div class="media-type">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-x-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
