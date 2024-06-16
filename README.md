@@ -4,7 +4,7 @@
 
 First clone the repository from Gitlab and switch to the new directory:
   ```shell
-    $ git clone https://gitlab.com/pcps-college/l5-c/flex-fit-gym.git
+    $ https://github.com/charitraa/Flex_Fit_Gym.git
     $ cd flex-fit-gym/Flex_Fit_Gym
   ```
 
